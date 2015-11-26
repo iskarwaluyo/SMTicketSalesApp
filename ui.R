@@ -1,4 +1,5 @@
 library(data.table)
+library(curl)
 
 enero <- fread("https://github.com/cheespanther/SMTicketSalesApp/blob/master/datos/1.csv")
 febrero <- fread("https://github.com/cheespanther/SMTicketSalesApp/blob/master/datos/2.csv")
