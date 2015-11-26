@@ -1,4 +1,4 @@
-"","date_order","session_id..id","session_id.user_id.display_name","amount_total"
+"","date_order","session_id","session_id.user_id.display_name","amount_total"
 "1","31/03/2014 23:55",340,"Humberto Sosa Mayorga",11
 "2","31/03/2014 23:51",340,"Humberto Sosa Mayorga",18.5
 "3","31/03/2014 23:49",340,"Humberto Sosa Mayorga",70.48

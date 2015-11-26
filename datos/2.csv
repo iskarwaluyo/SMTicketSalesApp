@@ -1,4 +1,4 @@
-"","date_order","session_id..id","session_id.user_id.display_name","amount_total"
+"","date_order","session_id","session_id.user_id.display_name","amount_total"
 "1","28/02/2014 23:59",205,"Todd Royer",-265.9
 "2","28/02/2014 23:58",205,"Todd Royer",-24
 "3","28/02/2014 23:57",205,"Todd Royer",-22

@@ -1,4 +1,4 @@
-"","date_order","session_id..id","session_id.user_id.display_name","amount_total"
+"","date_order","session_id","session_id.user_id.display_name","amount_total"
 "1","31/08/2014 21:58",1225,"Jorge Gonzalez Sanchez",6
 "2","31/08/2014 21:58",1225,"Jorge Gonzalez Sanchez",41.87
 "3","31/08/2014 21:52",1225,"Jorge Gonzalez Sanchez",82.92
