@@ -59,7 +59,7 @@ shinyServer(function(input, output) {
       ventamin <<- min(soloventas)
       ventamax <<- max(soloventas)   
       
-      dataticketsplit <<- split(dataset, dataset$session_id/user_id/display_name)
+      dataticketsplit <<- split(dataset, dataset$session_id.user_id.display_name)
       dataticketsplit2 <<- list2env(dataticketsplit, envir = .GlobalEnv)
       
       c1 <- as.matrix(subset (soloventas, soloventas <= 20))
@@ -104,9 +104,9 @@ shinyServer(function(input, output) {
     
     dataset <- datasetInput()
     
-    promedio_cajeros <<- ddply (dataset, "session_id/user_id/display_name", summarise, promediocajero = mean(amount_total))
-    numero_de_ventas <<- ddply (dataset, "session_id/user_id/display_name", summarise, ticketstotal = length(amount_total))
-    suma_cajeros <<- ddply (dataset, "session_id/user_id/display_name", summarise, ventatotal = sum(amount_total))
+    promedio_cajeros <<- ddply (dataset, "session_id.user_id.display_name", summarise, promediocajero = mean(amount_total))
+    numero_de_ventas <<- ddply (dataset, "session_id.user_id.display_name", summarise, ticketstotal = length(amount_total))
+    suma_cajeros <<- ddply (dataset, "session_id.user_id.display_name", summarise, ventatotal = sum(amount_total))
     cajeros <<- cbind(promedio_cajeros, numero_de_ventas[,2], suma_cajeros[,2])
     colnames(cajeros) <<- c("Cajero", "Promedio", "No. de Ventas", "Total Ventas")
     cajeros
