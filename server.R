@@ -1,5 +1,4 @@
-setwd("D:/KEEP_ISKAR/R/archivosR/shinyapp2")
-setwd("D:/KEEP_ISKAR/R/archivosR/shinyapp2/datos")
+url_data <- "https://github.com/cheespanther/SMTicketSalesApp/blob/master/datos/1.csv"
 
 enero <- read.csv("1.csv")
 febrero <- read.csv("2.csv")

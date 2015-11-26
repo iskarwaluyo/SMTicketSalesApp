@@ -1,21 +1,15 @@
-setwd("D:/KEEP_ISKAR/R/archivosR/shinyapp2")
-setwd("D:/KEEP_ISKAR/R/archivosR/shinyapp2/datos")
-
-enero <- read.csv("1.csv")
-febrero <- read.csv("2.csv")
-marzo <- read.csv("3.csv")
-abril <- read.csv("4.csv")
-mayo <- read.csv("5.csv")
-junio <- read.csv("6.csv")
-julio <- read.csv("7.csv")
-agosto <- read.csv("8.csv")
-septiembre <- read.csv("9.csv")
-octubre <- read.csv("10.csv")
-noviembre <- read.csv("11.csv")
-diciembre <- read.csv("12.csv")
-
-setwd("D:/KEEP_ISKAR/R/archivosR/shinyapp2")
-
+enero <- fread('datos/1.csv')
+febrero <- fread('datos/2.csv')
+marzo <- fread('datos/3.csv')
+abril <- fread('datos/4.csv')
+mayo <- fread('datos/5.csv')
+junio <- fread('datos/6.csv')
+julio <- fread('datos/7.csv')
+agosto <- fread('datos/8.csv')
+septiembre <- fread('datos/9.csv')
+octubre <- fread('datos/10.csv')
+noviembre <- fread('datos/11.csv')
+diciembre <- fread('datos/12.csv')
 
 library(shiny)
 
