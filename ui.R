@@ -58,7 +58,6 @@ shinyUI(fluidPage(
     h4("Resumen Cajeros:"),
     verbatimTextOutput("cajeros"),
     
-    
     h4("Datos Tickets:"),
     tableOutput("view")
 
