@@ -1,0 +1,84 @@
+---
+title       : Sales Ticket App
+subtitle    : Automatic Sales Ticket Analyis
+author      : Iskar Waluyo Moreno
+job         : Operations Manager Super Mas Super Market
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+
+---
+
+## What the application does? 
+
+- This application simplifies studying sales tickets in Super Mas Stores.
+- Super Mas stores currently has an average of 147 transactions per day per store. 
+- Each transaction creates a unique ticket that can be analyzed. The information can be used to take administrative decisions for the store.
+- This application will process the acumulated tickets per month and allow users to proccess the information inmediately as long as the information is up to date.
+- The information proccessing will result in 5 useful reports
+
+--- .class #id 
+## Data
+
+- Each transaction made in the POS systems is recorded in a server. 
+- For the application data from January to December of 2014 is available in the operation. 
+- Data is uploaded into a Github account.
+    * https://github.com/cheespanther/SMTicketSalesApp/tree/master/datos
+- The data is organized in .csv with the following headers: 
+    * Time stamp
+    * User
+    * Total sales
+    * Store in which the sale was made
+
+---.class #id 
+## Tickets processing
+The App will display 5 windows
+
+###  1. Summary by cashier (Resumen Cajeros)
+```{r, eval = FALSE}
+dataticketsplit <<- split(dataset, dataset$session_id.user_id.display_name)
+dataticketsplit2 <<- list2env(dataticketsplit, envir = .GlobalEnv)
+```
+
+###  2. Number of tickets by range (Rango Tickets)
+```{r, eval = FALSE}
+c1 <- as.matrix(subset (soloventas, soloventas <= 20))
+c2 <- as.matrix(subset (soloventas, soloventas > 20 & soloventas <= 50))
+c3 <- as.matrix(subset (soloventas, soloventas > 50 & soloventas <= 100))
+c4 <- as.matrix(subset (soloventas, soloventas > 100 & soloventas <= 200))
+c5 <- as.matrix(subset (soloventas, soloventas > 200 & soloventas <= 400))
+c6 <- as.matrix(subset (soloventas, soloventas > 400))
+```
+
+---.class #id 
+## Tickets processing (cont.)
+### 3. Sales by cashier graphic
+```{r, eval = FALSE}
+bwplot(session_id.user_id.display_name~amount_total, data=dataset,
+      xlab="Venta Promedio por Ticket",
+      ylab="Cajero",
+      main="Promedio de Ventas por Ticket")
+```
+
+### 4. Summary of tickets (max & min, average, total sales, total tickets)
+
+```{r, eval = FALSE}
+promedio_cajeros <<- ddply (dataset, "session_id.user_id.display_name", summarise, 
+promediocajero = mean(amount_total))
+numero_de_ventas <<- ddply (dataset, "session_id.user_id.display_name", summarise, 
+ticketstotal = length(amount_total))
+suma_cajeros <<- ddply (dataset, "session_id.user_id.display_name", summarise, 
+ventatotal = sum(amount_total))
+cajeros <<- cbind(promedio_cajeros, numero_de_ventas[,2], suma_cajeros[,2])
+```
+
+---.class #id 
+## Uses for these reports 
+- The reports provided by this application will allow administrators to easily summarize the general sales information for each month and analyze what kind of customers are walking into the store. 
+- This will allow for better decision making when deciding what kinds of new products/services to offer and what kind of design the store should have. 
+- Example: customers that purchase less than $50.00 MXN are more than likely convenience shopper and this type of customer has specefice patterns and needs.
+- Information will be updated each month. 
+- The code will be adjusted to allow selection by month and year. 
